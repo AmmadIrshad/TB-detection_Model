@@ -3,13 +3,15 @@ from inference_sdk import InferenceHTTPClient
 from PIL import Image
 import os
 
+
 # Initialize Flask app
 app = Flask(__name__)
 
 # Initialize the TB detection model client
 CLIENT = InferenceHTTPClient(
     api_url="https://detect.roboflow.com",
-    api_key="weUzBKzyD6TYzQL04eBi"
+    #api_key="weUzBKzyD6TYzQL04eBi"
+    api_key = os.getenv("API_KEY")
 )
 
 def is_xray_image(file_path):
